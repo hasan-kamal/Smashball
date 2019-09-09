@@ -112,9 +112,9 @@ void TriangularHingedObstruction::updateState(float dt, float worldToPixelScale,
     
     //shadow
     auto shape = (b2PolygonShape *)this->triangularFixture->GetShape();
-    b2Vec2 v1 = this->triangularBody->GetWorldPoint(shape->GetVertex(0));
-    b2Vec2 v2 = this->triangularBody->GetWorldPoint(shape->GetVertex(1));
-    b2Vec2 v3 = this->triangularBody->GetWorldPoint(shape->GetVertex(2));
+    b2Vec2 v1 = this->triangularBody->GetWorldPoint(shape->m_vertices[0]);
+    b2Vec2 v2 = this->triangularBody->GetWorldPoint(shape->m_vertices[1]);
+    b2Vec2 v3 = this->triangularBody->GetWorldPoint(shape->m_vertices[2]);
     
     shadowRadius = max(max(v1.x, v2.x), v3.x) - min(min(v1.x, v2.x), v3.x);
     shadowRadius = shadowRadius/2.0*1.4;

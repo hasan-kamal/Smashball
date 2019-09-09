@@ -58,9 +58,9 @@ SpikeFixture::~SpikeFixture(){
 void SpikeFixture::updateState(float dt, float worldToPixelScale, cocos2d::Vec2 offsetOriginToBeAdded){
     
     auto shape = (b2PolygonShape *)this->spikeFixture->GetShape();
-    b2Vec2 v1 = this->parentBody->GetWorldPoint(shape->GetVertex(0));
-    b2Vec2 v2 = this->parentBody->GetWorldPoint(shape->GetVertex(1));
-    b2Vec2 v3 = this->parentBody->GetWorldPoint(shape->GetVertex(2));
+    b2Vec2 v1 = this->parentBody->GetWorldPoint(shape->m_vertices[0]);
+    b2Vec2 v2 = this->parentBody->GetWorldPoint(shape->m_vertices[1]);
+    b2Vec2 v3 = this->parentBody->GetWorldPoint(shape->m_vertices[2]);
 
     b2Vec2 spikeSpritePosition;
     spikeSpritePosition.Set((v1.x+v2.x+v3.x)/3.0, (v1.y+v2.y+v3.y)/3.0);
